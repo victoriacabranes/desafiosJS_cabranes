@@ -1,3 +1,9 @@
+/**
+ * 1.Ingresar materia, notas y saber el promedio.
+ * si cuando pide la nota, se ingresa una letra, se le vuelve a pedir la nota hasta que ingrese el numero
+ * para ver las materias, ir a la consola, y se veran los objetos.
+ */
+
 let opcion;
 let materias = [
     {
@@ -14,11 +20,20 @@ while (opcion !== 0) {
 
     switch (opcion) {
         case 1:
-                const materia = prompt("Ingrese el nombre de la materia");
-                const primerNota = Number(prompt("Ingrese la primera nota"));
-                const segundaNota = Number(prompt("Ingrese la segunda nota"));
-                const tercerNota = Number(prompt("Ingrese la tercer nota"));
-                const promedio = (primerNota + segundaNota + tercerNota) / 3;
+                const materia = prompt("Ingrese el nombre de la materia");  
+                let primerNota;
+                do {
+                    primerNota = parseInt(prompt("Ingrese la primera nota"));
+                } while (isNaN(primerNota));
+                let segundaNota;
+                do {
+                   segundaNota = parseInt(prompt("Ingrese la segunda nota"));
+                } while (isNaN(segundaNota));
+                let tercerNota;
+                do {
+                    tercerNota = parseInt(prompt("Ingrese la tercer nota"));
+                } while (isNaN(tercerNota));
+                const promedio = parseInt((primerNota + segundaNota + tercerNota) / 3);
                 alert("tu promedio es de: " + promedio); 
                 guardarMateria (materia, primerNota, segundaNota, tercerNota, promedio);
             break;
